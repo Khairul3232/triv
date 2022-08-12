@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
+import Main from "../../components/Main/Main";
 import HomePageContainer from "./HomePageContainer";
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
       {(data) => (
         <React.Fragment>
           <Header />
+          <Main />
         </React.Fragment>
       )}
     </HomePageContainer>
