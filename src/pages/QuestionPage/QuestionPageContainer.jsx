@@ -3,9 +3,15 @@ import useQuestions from "../../hooks/useQuestions";
 import { HomePageStyles } from "../HomePage/HomePage.styles";
 
 const QuestionPageContainer = ({ children }) => {
-  const data = useQuestions();
+  const [data, fetchStatus] = useQuestions();
 
-  return <HomePageStyles>{children(data)}</HomePageStyles>;
+  const isSuccessfulFetchQuestions = (_) => fetchStatus > 0;
+
+  return (
+    <HomePageStyles>
+      {isSuccessfulFetchQuestions() && children(data)}
+    </HomePageStyles>
+  );
 };
 
 export default QuestionPageContainer;

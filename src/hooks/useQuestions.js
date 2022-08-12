@@ -12,21 +12,21 @@ const useQuestions = (
   const [data, setData] = useState(null);
   const [fetchStatus, setFetchStatus] = useState(FETCH_FAILED);
 
+  const validateResponse = response => (() => {
+    if (response.status === 200) {
+      setFetchStatus(_ => response.status);
+      return response.json();
+    }
+    else { setFetchStatus(_ => response.status); }
+  })();
+
+  const setResponseData = data => setData(prevData => ({ ...prevData, ...data }));
+
   const fetchData = _ => {
     console.log("fetching data");
     fetch(fetchUrl)
-      .then((response) =>
-        (() => {
-          if (response.status === 200) {
-            setFetchStatus(_ => response.status);
-            return response.json();
-          }
-          else { setFetchStatus(_ => response.status); }
-        })()
-      )
-      .then((data) => {
-        setData(prevData => ({ ...prevData, ...data }));
-      });
+      .then(response => validateResponse(response))
+      .then(data => setResponseData(data));
   };
 
   useMemo(() => fetchData(), []);
