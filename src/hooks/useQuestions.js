@@ -29,9 +29,9 @@ const useQuestions = (
       .then(data => setResponseData(data));
   };
 
-  useMemo(() => fetchData(), []);
+  const memoised = useMemo(() => fetchData(), []);
 
-  return [data, fetchStatus];
+  return [data, fetchStatus, memoised];
 };
 
 export default useQuestions;

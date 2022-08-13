@@ -6,7 +6,7 @@ const HomePageContainer = ({ children }) => {
   const navigate = useNavigate();
   const beginTrivia = (event) => {
     event.preventDefault();
-    navigate("/question", { replace: true });
+    navigate("/question/1", { replace: true });
   };
   return (
     <HomePageStyles>
