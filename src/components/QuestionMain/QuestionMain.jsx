@@ -4,15 +4,15 @@ import HeaderCategory from "../HeaderCategory/HeaderCategory";
 import TextMain from "../TextMain/TextMain";
 import QuestionMainContainer from "./QuestionMain.container";
 
-const QuestionMain = ({ data }) => {
+const QuestionMain = ({ data, index }) => {
   return (
-    <QuestionMainContainer data={data}>
+    <QuestionMainContainer data={data} index={index}>
       {({ data: { category, question }, button: { yes, no } }) => (
         <React.Fragment>
           <HeaderCategory category={category} />
           <TextMain textBig={question} />
-          <Button {...yes} />
-          <Button {...no} />
+          <Button {...yes} index={index} />
+          <Button {...no} index={index} />
         </React.Fragment>
       )}
     </QuestionMainContainer>

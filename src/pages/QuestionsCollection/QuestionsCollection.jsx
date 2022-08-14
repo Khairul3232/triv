@@ -1,19 +1,22 @@
 import React from "react";
+import { useContext } from "react";
 import { Route } from "react-router-dom";
+import { QuestionContext } from "../../contexts/QuestionContext";
 import HomePage from "../HomePage/HomePage";
 import QuestionPage from "../QuestionPage/QuestionPage";
 import QuestionsCollectionContainer from "./QuestionsCollection.container";
 
 const QuestionsCollection = () => {
+  const { collection } = useContext(QuestionContext);
   return (
     <QuestionsCollectionContainer>
-      {({ collection, id }) =>
+      {({ id }) =>
         collection && [
-          collection.results.map((item, index) => (
+          collection.map((item, index) => (
             <Route
               key={`${id}_${index}`}
               path={`/${index + 1}`}
-              element={<QuestionPage data={item} />}
+              element={<QuestionPage index={index} data={item} />}
             />
           )),
           <Route
