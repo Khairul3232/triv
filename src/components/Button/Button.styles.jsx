@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ButtonStyle = styled.button`
   margin-top: 5rem;
+  margin-left: 1rem;
   text-align: center;
 
   min-width: 165px;
@@ -16,10 +17,5 @@ export const ButtonStyle = styled.button`
   font-weight: bolder;
   cursor: pointer;
   display: flex;
-  justify-content: center;
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    font-size: 1.5rem;
-  }
+  justify-content: "space-between";
 `;

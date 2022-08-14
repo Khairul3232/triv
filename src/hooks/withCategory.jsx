@@ -1,9 +1,8 @@
 import React from "react";
 
-const withCategory =
-  (ComponentToWrap) =>
-  ({ category }) => {
-    return category && <ComponentToWrap category={category} />;
-  };
+const withCategory = (ComponentToWrap) => (props) => {
+  const { category } = props;
+  return category && <ComponentToWrap {...props} />;
+};
 
 export default withCategory;

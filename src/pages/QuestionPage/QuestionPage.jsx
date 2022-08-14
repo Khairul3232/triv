@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderCategory from "../../components/HeaderCategory/HeaderCategory";
+import QuestionMain from "../../components/QuestionMain/QuestionMain";
 import QuestionPageContainer from "./QuestionPageContainer";
 
 const QuestionPage = ({ data }) => {
@@ -7,7 +7,7 @@ const QuestionPage = ({ data }) => {
     <React.Fragment>
       <QuestionPageContainer>
         {() => {
-          return data && <HeaderCategory category={data.category} />;
+          return <QuestionMain data={data} />;
         }}
       </QuestionPageContainer>
     </React.Fragment>

@@ -1,8 +1,8 @@
 import React from "react";
 import ButtonContainer from "./ButtonContainer";
 
-const Button = ({ onClick, text }) => {
-  return <ButtonContainer onClick={onClick}>{(_) => text}</ButtonContainer>;
+const Button = ({ text, ...otherProps }) => {
+  return <ButtonContainer {...otherProps}>{(_) => text}</ButtonContainer>;
 };
 
 export default Button;
