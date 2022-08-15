@@ -10,7 +10,6 @@ const QuestionProvider = ({ children }) => {
     score: [],
     pushScore: (value) => context.score.push(value),
   };
-  console.log("QuestionProvider context val: ", context);
   return (
     <QuestionContext.Provider value={context}>
       {children}
