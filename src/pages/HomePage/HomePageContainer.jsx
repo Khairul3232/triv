@@ -1,10 +1,7 @@
 import { HomePageStyles } from "./HomePage.styles";
 import React from "react";
-// import data from "./HomePageData.json";
-import { useNavigate } from "react-router-dom";
 const HomePageContainer = ({ children }) => {
-  const navigate = useNavigate();
-  const beginTrivia = (event) => {
+  const beginTrivia = (event, navigate) => {
     event.preventDefault();
     navigate("/question/1", { replace: true });
   };

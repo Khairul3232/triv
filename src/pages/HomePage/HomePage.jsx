@@ -1,23 +1,28 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import Main from "../../components/TextMain/TextMain";
 import HomePageContainer from "./HomePageContainer";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <HomePageContainer>
-      {(data) => {
-        const { instruction, prompt, onClickBegin, promptButton } = data;
-        return (
-          <React.Fragment>
-            <Header />
-            <Main textBig={instruction} />
-            <Main textBig={prompt} />
-            <Button onClick={onClickBegin} text={promptButton} />
-          </React.Fragment>
-        );
-      }}
+      {(data) => (
+        <React.Fragment>
+          <Header />
+          <Main textBig={data.instruction} />
+          <Main textBig={data.prompt} />
+          <Button
+            onClick={(ev) => {
+              data.onClickBegin(ev, navigate);
+            }}
+            text={data.promptButton}
+          />
+        </React.Fragment>
+      )}
     </HomePageContainer>
   );
 };
