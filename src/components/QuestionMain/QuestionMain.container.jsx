@@ -4,19 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { QuestionContext } from "../../contexts/QuestionContext";
 
 const QuestionMainContainer = ({ children, data, index }) => {
-  // console.log(data);
   const TRUE = "True";
   const FALSE = "False";
-  const { pushScore, score } = useContext(QuestionContext);
+  const { pushScore } = useContext(QuestionContext);
   const navigate = useNavigate();
 
   const onTrueFalseButtonClick = (event) => {
     event.preventDefault();
     const { correct_answer } = data;
-    console.log("data: ", data);
     if (correct_answer === event.target.value) {
       pushScore(1);
-      console.log(score);
     } else {
       pushScore(0);
     }
@@ -32,6 +29,7 @@ const QuestionMainContainer = ({ children, data, index }) => {
   return (
     <React.Fragment>
       {children({
+        position: index + 1,
         data,
         button: {
           yes: {

@@ -9,6 +9,7 @@ const QuestionProvider = ({ children }) => {
     collection: collection ? [...collection.results] : [],
     score: [],
     pushScore: (value) => context.score.push(value),
+    resetScoreArray: () => (context.score = []),
   };
   return (
     <QuestionContext.Provider value={context}>
