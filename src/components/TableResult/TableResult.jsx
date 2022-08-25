@@ -1,10 +1,9 @@
 import React from "react";
 import useDecodeHTMLEntities from "../../hooks/useDecodeHTMLEntities";
-import Icon from "../IconContainer/Icon";
 import TableResultContainer from "./TableResult.container";
-import { TableStyles, TDataStyles, TRowStyles } from "./TableResult.styles";
+import { TDataStyles, TRowStyles } from "./TableResult.styles";
 
-const TableResult = ({}) => {
+const TableResult = () => {
   const decodeToHtml = useDecodeHTMLEntities()();
   return (
     <TableResultContainer>

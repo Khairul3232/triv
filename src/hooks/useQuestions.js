@@ -24,10 +24,10 @@ const useQuestions = (
 
   const fetchData = _ => {
     fetch(fetchUrl)
-      .then(response => validateResponse(response))
+      .then(response => validateResponse(response), error => console.log(`Failed to receive response. ${error}`))
       .then(data => {
         return setResponseData(data);
-      });
+      }, error => console.log(`Failed to validate response. ${error}`));
   };
 
   const memoised = useMemo(async () => fetchData(), []);

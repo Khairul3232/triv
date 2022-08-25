@@ -3,13 +3,7 @@ import MinusSign from "./MinusSign";
 import PlusSign from "./PlusSign";
 
 const IconContainer = ({ children, symbol }) => {
-  const determineSymbol = () => {
-    if (symbol === 0) {
-      return <MinusSign />;
-    } else {
-      return <PlusSign />;
-    }
-  };
+  const determineSymbol = () => (symbol === 0 ? <MinusSign /> : <PlusSign />);
   return <React.Fragment>{children(determineSymbol)}</React.Fragment>;
 };
 

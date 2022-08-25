@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderContainer from "./HeaderContainer";
+import HeaderContainer from "./Header.container";
 
 const Header = ({ custom }) => {
   return <HeaderContainer>{(title) => custom || title}</HeaderContainer>;
